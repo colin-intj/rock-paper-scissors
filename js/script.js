@@ -7,8 +7,8 @@
 const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
 
 /**
- * This function determines whether the player won or lost and returns a message
- * containing the game results.
+ * Determines whether the player won or lost and returns a message containing
+ * the game results.
  * @param {string} playerSelection
  * @param {string} computerSelection
  * @return {string}
@@ -45,8 +45,8 @@ const playRound = (playerSelection, computerSelection) => {
 };
 
 /**
- * This function plays multiple rounds of Rock Paper Scissors. It also returns
- * the number of times each player won and who won the most rounds.
+ * Plays multiple rounds of Rock Paper Scissors. It also returns the number of
+ * times each player won and who won the most rounds.
  * @param {number} [totalRounds=5] - Number of rounds to play
  * @return {string}
  */
