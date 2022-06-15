@@ -14,11 +14,11 @@ const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
  * @return {string}
  */
 const playRound = (playerSelection, computerSelection) => {
+  if (playerSelection === computerSelection) return 'Tie';
+
   switch (playerSelection) {
     case 'rock':
       switch (computerSelection) {
-        case 'rock':
-          return 'Tie';
         case 'paper':
           return 'You Lose: Paper beats Rock';
         case 'scissors':
@@ -29,8 +29,6 @@ const playRound = (playerSelection, computerSelection) => {
       switch (computerSelection) {
         case 'rock':
           return 'You Win: Paper beats Rock';
-        case 'paper':
-          return 'Tie';
         case 'scissors':
           return 'You Lose: Scissors beats Paper';
       }
@@ -41,8 +39,6 @@ const playRound = (playerSelection, computerSelection) => {
           return 'You Lose: Rock beats Scissors';
         case 'paper':
           return 'You Win: Scissors beats Paper';
-        case 'scissors':
-          return 'Tie';
       }
       break;
   }
