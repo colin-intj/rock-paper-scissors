@@ -5,3 +5,6 @@
  * @return {string} 'Rock', 'Paper', or 'Scissors'
  */
 const computerPlay = () => ['Rock', 'Paper', 'Scissors'][~~(Math.random() * 2)];
+
+const playRound = (playerSelection, computerSelection) => {
+};
