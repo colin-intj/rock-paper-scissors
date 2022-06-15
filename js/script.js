@@ -23,30 +23,37 @@ const capitalizeFirstLetter =
  * @return {string}
  */
 const playRound = (playerSelection, computerSelection) => {
-  if (playerSelection === 'Rock') {
-    if (computerSelection === 'Rock') {
-      return 'Tie';
-    } else if (computerSelection === 'Paper') {
-      return 'You Lose: Paper beats Rock';
-    } else if (computerSelection === 'Scissors') {
-      return 'You Win: Rock beats Scissors';
-    }
-  } else if (playerSelection === 'Paper') {
-    if (computerSelection === 'Rock') {
-      return 'You Win: Paper beats Rock';
-    } else if (computerSelection === 'Paper') {
-      return 'Tie';
-    } else if (computerSelection === 'Scissors') {
-      return 'You Lose: Scissors beats Paper';
-    }
-  } else if (playerSelection === 'Scissors') {
-    if (computerSelection === 'Rock') {
-      return 'You Lose: Rock beats Scissors';
-    } else if (computerSelection === 'Paper') {
-      return 'You Win: Scissors beats Paper';
-    } else if (computerSelection === 'Scissors') {
-      return 'Tie';
-    }
+  switch (playerSelection) {
+    case 'Rock':
+      switch (computerSelection) {
+        case 'Rock':
+          return 'Tie';
+        case 'Paper':
+          return 'You Lose: Paper beats Rock';
+        case 'Scissors':
+          return 'You Win: Rock beats Scissors';
+      }
+      break;
+    case 'Paper':
+      switch (computerSelection) {
+        case 'Rock':
+          return 'You Win: Paper beats Rock';
+        case 'Paper':
+          return 'Tie';
+        case 'Scissors':
+          return 'You Lose: Scissors beats Paper';
+      }
+      break;
+    case 'Scissors':
+      switch (computerSelection) {
+        case 'Rock':
+          return 'You Lose: Rock beats Scissors';
+        case 'Paper':
+          return 'You Win: Scissors beats Paper';
+        case 'Scissors':
+          return 'Tie';
+      }
+      break;
   }
 };
 
