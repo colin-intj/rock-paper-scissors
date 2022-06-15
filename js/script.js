@@ -83,3 +83,5 @@ const game = (totalRounds = 5) => {
       `${playerWins === computerWins ? 'Tie' :
           playerWins > computerWins ? 'You Win!' : 'You Lose!'}`;
 };
+
+game();
