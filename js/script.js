@@ -20,25 +20,25 @@ const playRound = (playerSelection, computerSelection) => {
     case 'rock':
       switch (computerSelection) {
         case 'paper':
-          return 'You Lose: Paper beats Rock';
+          return 'You lose: paper beats rock';
         case 'scissors':
-          return 'You Win: Rock beats Scissors';
+          return 'You win: rock beats scissors';
       }
       break;
     case 'paper':
       switch (computerSelection) {
         case 'rock':
-          return 'You Win: Paper beats Rock';
+          return 'You win: paper beats rock';
         case 'scissors':
-          return 'You Lose: Scissors beats Paper';
+          return 'You lose: scissors beats paper';
       }
       break;
     case 'scissors':
       switch (computerSelection) {
         case 'rock':
-          return 'You Lose: Rock beats Scissors';
+          return 'You lose: rock beats scissors';
         case 'paper':
-          return 'You Win: Scissors beats Paper';
+          return 'You win: scissors beats paper';
       }
       break;
   }
@@ -56,26 +56,26 @@ const game = (totalRounds = 5) => {
 
   for (let round = 0; round < totalRounds; round++) {
     let playerSelection =
-        prompt('Enter Your Move (\'rock\', \'paper\', or \'scissors\'): ');
+        prompt('Enter your move (\'rock\', \'paper\', or \'scissors\'): ');
     playerSelection = playerSelection.toLowerCase();
 
     const computerSelection = computerPlay();
 
     const winner = playRound(playerSelection, computerSelection);
 
-    alert(`You Chose: ${playerSelection}\n` +
-        `Computer Chose: ${computerSelection}\n${winner}`);
+    alert(`You chose: ${playerSelection}\n` +
+        `Computer chose: ${computerSelection}\n${winner}`);
 
-    if (winner.includes('Win')) {
+    if (winner.includes('win')) {
       playerWins++;
-    } else if (winner.includes('Lose')) {
+    } else if (winner.includes('lose')) {
       computerWins++;
     }
   }
 
   return `You won ${playerWins} games\nComputer won ${computerWins} games\n` +
       `${playerWins === computerWins ? 'Tie' :
-          playerWins > computerWins ? 'You Win!' : 'You Lose!'}`;
+          playerWins > computerWins ? 'You win!' : 'You lose!'}`;
 };
 
 game();
