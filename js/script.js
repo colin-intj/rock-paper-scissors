@@ -2,18 +2,9 @@
 
 /**
  * Randomly selects the computer's move for the game Rock Paper Scissors.
- * @return {string} 'Rock', 'Paper', or 'Scissors'
+ * @return {string} 'rock', 'paper', or 'scissors'
  */
-const computerPlay = () => ['Rock', 'Paper', 'Scissors'][~~(Math.random() * 2)];
-
-/**
- * This function capitalizes the first letter in a word and decapitalizes the
- * rest.
- * @param {string} word
- * @return {string}
- */
-const capitalizeFirstLetter =
-    (word) => word[0].toUpperCase() + word.slice(1).toLowerCase();
+const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
 
 /**
  * This function determines whether the player won or lost and returns a message
@@ -24,33 +15,33 @@ const capitalizeFirstLetter =
  */
 const playRound = (playerSelection, computerSelection) => {
   switch (playerSelection) {
-    case 'Rock':
+    case 'rock':
       switch (computerSelection) {
-        case 'Rock':
+        case 'rock':
           return 'Tie';
-        case 'Paper':
+        case 'paper':
           return 'You Lose: Paper beats Rock';
-        case 'Scissors':
+        case 'scissors':
           return 'You Win: Rock beats Scissors';
       }
       break;
-    case 'Paper':
+    case 'paper':
       switch (computerSelection) {
-        case 'Rock':
+        case 'rock':
           return 'You Win: Paper beats Rock';
-        case 'Paper':
+        case 'paper':
           return 'Tie';
-        case 'Scissors':
+        case 'scissors':
           return 'You Lose: Scissors beats Paper';
       }
       break;
-    case 'Scissors':
+    case 'scissors':
       switch (computerSelection) {
-        case 'Rock':
+        case 'rock':
           return 'You Lose: Rock beats Scissors';
-        case 'Paper':
+        case 'paper':
           return 'You Win: Scissors beats Paper';
-        case 'Scissors':
+        case 'scissors':
           return 'Tie';
       }
       break;
@@ -69,8 +60,8 @@ const game = (totalRounds = 5) => {
 
   for (let round = 0; round < totalRounds; round++) {
     let playerSelection =
-        prompt('Enter Your Move (\'Rock\', \'Paper\', or \'Scissors\'): ');
-    playerSelection = capitalizeFirstLetter(playerSelection);
+        prompt('Enter Your Move (\'rock\', \'paper\', or \'scissors\'): ');
+    playerSelection = playerSelection.toLowerCase();
 
     const computerSelection = computerPlay();
 
