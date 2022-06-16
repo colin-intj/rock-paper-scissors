@@ -66,9 +66,9 @@ const game = (totalRounds = 5) => {
     alert(`You chose: ${playerSelection}\n` +
         `Computer chose: ${computerSelection}\n${winner}`);
 
-    if (winner.includes('win')) {
+    if (winner.startsWith('You win')) {
       playerWins++;
-    } else if (winner.includes('lose')) {
+    } else if (winner.startsWith('You lose')) {
       computerWins++;
     }
   }
