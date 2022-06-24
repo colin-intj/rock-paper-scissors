@@ -78,4 +78,4 @@ const game = (totalRounds = 5) => {
           playerWins > computerWins ? 'You win!' : 'You lose!'}`;
 };
 
-alert(game());
+// alert(game());
