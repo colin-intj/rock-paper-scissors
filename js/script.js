@@ -45,8 +45,9 @@ const playRound = (playerSelection, computerSelection) => {
 };
 
 const buttons = document.querySelectorAll('button');
-let playerWins = 0;
-let computerWins = 0;
+
+let playerScore = 0;
+let computerScore = 0;
 
 for (const button of buttons) {
   button.onclick = (event) => {
@@ -60,10 +61,10 @@ for (const button of buttons) {
 
     if (winner.startsWith('You win')) {
       document.querySelector(`p[data-player='player'] > span`).textContent =
-          ++playerWins;
+          ++playerScore;
     } else if (winner.startsWith('You lose')) {
       document.querySelector(`p[data-player='computer'] > span`).textContent =
-          ++computerWins;
+          ++computerScore;
     }
   };
 }
@@ -72,8 +73,10 @@ const scoreCounters = document.querySelectorAll('#scores span');
 
 const observeScores = new MutationObserver((mutationsList, observer) => {
   const mutationTarget = mutationsList[0].target;
+
   if (mutationTarget.textContent === '5') {
     alert(`${mutationTarget.parentNode.dataset.player} won the game!`);
+
     for (const scoreCounter of scoreCounters) {
       scoreCounter.textContent = '0';
     }
