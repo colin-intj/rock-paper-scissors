@@ -59,11 +59,11 @@ for (const button of buttons) {
         `${computerSelection}\n${winner}`);
 
     if (winner.startsWith('You win')) {
-      document.querySelector(`[data-player='player']`)
-          .querySelector('span').textContent = ++playerWins;
+      document.querySelector(`p[data-player='player'] > span`).textContent =
+          ++playerWins;
     } else if (winner.startsWith('You lose')) {
-      document.querySelector(`[data-player='computer']`)
-          .querySelector('span').textContent = ++computerWins;
+      document.querySelector(`p[data-player='computer'] > span`).textContent =
+          ++computerWins;
     }
   };
 }
@@ -79,7 +79,6 @@ const observeScores = new MutationObserver((mutationsList, observer) => {
     }
   }
 });
-
 
 for (const scoreCounter of scoreCounters) {
   observeScores.observe(scoreCounter, {childList: true});
