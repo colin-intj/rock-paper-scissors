@@ -86,6 +86,8 @@ for (const button of buttons) {
   button.onclick = (event) => {
     const playerSelection = button.dataset.selection;
     const computerSelection = computerPlay();
-    alert(playRound(playerSelection, computerSelection));
+    alert(`You chose: ${playerSelection}\nComputer chose: ` +
+        `${computerSelection}\n` +
+        `${playRound(playerSelection, computerSelection)}`);
   };
 }
