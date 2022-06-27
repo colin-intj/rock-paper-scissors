@@ -44,6 +44,15 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
+/**
+ * This function capitalizes the first letter in a word and decapitalizes the
+ * rest.
+ * @param {string} word
+ * @return {string}
+ */
+const capitalizeFirstLetter =
+    (word) => word[0].toUpperCase() + word.slice(1).toLowerCase();
+
 const buttons = document.querySelectorAll('button');
 
 let playerScore = 0;
@@ -80,7 +89,9 @@ const observeScores = new MutationObserver((mutationsList, observer) => {
   const mutationTarget = mutationsList[0].target;
 
   if (mutationTarget.textContent === '5') {
-    alert(`${mutationTarget.parentNode.dataset.player} won the game!`);
+    const winnerName =
+        capitalizeFirstLetter(mutationTarget.parentNode.dataset.player);
+    alert(`${winnerName} won the game!`);
 
     for (const scoreCounter of scoreCounters) {
       scoreCounter.textContent = '0';
