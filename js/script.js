@@ -103,3 +103,20 @@ for (const button of buttons) {
     }
   };
 }
+
+const scoreCounters = document.querySelectorAll('#scores span');
+
+const observeScores = new MutationObserver((mutationsList, observer) => {
+  const mutationTarget = mutationsList[0].target;
+  if (mutationTarget.textContent === '5') {
+    alert(`${mutationTarget.parentNode.dataset.player} won the game!`);
+    for (const scoreCounter of scoreCounters) {
+      scoreCounter.textContent = '0';
+    }
+  }
+});
+
+
+for (const scoreCounter of scoreCounters) {
+  observeScores.observe(scoreCounter, {childList: true});
+}
