@@ -81,13 +81,23 @@ const game = (totalRounds = 5) => {
 // alert(game());
 
 const buttons = document.querySelectorAll('button');
+let playerWins = 0;
+let computerWins = 0;
 
 for (const button of buttons) {
   button.onclick = (event) => {
     const playerSelection = button.dataset.selection;
     const computerSelection = computerPlay();
+
+    const winner = playRound(playerSelection, computerSelection);
+
     alert(`You chose: ${playerSelection}\nComputer chose: ` +
-        `${computerSelection}\n` +
-        `${playRound(playerSelection, computerSelection)}`);
+        `${computerSelection}\n${winner}`);
+
+    if (winner.startsWith('You win')) {
+      document.querySelectorAll('span')[0].textContent = ++playerWins;
+    } else if (winner.startsWith('You lose')) {
+      document.querySelectorAll('span')[1].textContent = ++computerWins;
+    }
   };
 }
