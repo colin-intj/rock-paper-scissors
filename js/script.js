@@ -50,7 +50,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 for (const button of buttons) {
-  button.onclick = (event) => {
+  button.onclick = () => {
     const playerSelection = button.dataset.selection;
     const computerSelection = computerPlay();
 
