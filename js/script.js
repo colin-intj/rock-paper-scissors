@@ -79,3 +79,13 @@ const game = (totalRounds = 5) => {
 };
 
 // alert(game());
+
+const buttons = document.querySelectorAll('button');
+
+for (const button of buttons) {
+  button.onclick = (event) => {
+    const playerSelection = button.dataset.selection;
+    const computerSelection = computerPlay();
+    alert(playRound(playerSelection, computerSelection));
+  };
+}
