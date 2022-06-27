@@ -49,6 +49,11 @@ const buttons = document.querySelectorAll('button');
 let playerScore = 0;
 let computerScore = 0;
 
+document.querySelector(`p[data-player='player'] > span`).textContent =
+    playerScore;
+document.querySelector(`p[data-player='computer'] > span`).textContent =
+    computerScore;
+
 for (const button of buttons) {
   button.onclick = () => {
     const playerSelection = button.dataset.selection;
