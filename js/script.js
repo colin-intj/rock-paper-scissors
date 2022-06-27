@@ -95,9 +95,11 @@ for (const button of buttons) {
         `${computerSelection}\n${winner}`);
 
     if (winner.startsWith('You win')) {
-      document.querySelectorAll('span')[0].textContent = ++playerWins;
+      document.querySelector(`[data-player='player']`)
+          .querySelector('span').textContent = ++playerWins;
     } else if (winner.startsWith('You lose')) {
-      document.querySelectorAll('span')[1].textContent = ++computerWins;
+      document.querySelector(`[data-player='computer']`)
+          .querySelector('span').textContent = ++computerWins;
     }
   };
 }
