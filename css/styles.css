@@ -21,5 +21,10 @@ body {
 #scores {
   column-gap: 8px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+#scores > * {
+  white-space: nowrap;
 }
