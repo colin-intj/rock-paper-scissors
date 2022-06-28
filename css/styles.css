@@ -17,3 +17,9 @@ body {
   margin: 0;
   padding: 8px;
 }
+
+#scores {
+  column-gap: 8px;
+  display: flex;
+  justify-content: space-between;
+}
