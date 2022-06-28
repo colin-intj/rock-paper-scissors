@@ -29,6 +29,10 @@ body {
   white-space: nowrap;
 }
 
-h1 {
-  margin-bottom: 0;
+header > * {
+  margin: 0;
+}
+
+header > p {
+  color: #808080;
 }
