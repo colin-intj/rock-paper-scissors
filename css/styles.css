@@ -28,3 +28,7 @@ body {
 #scores > * {
   white-space: nowrap;
 }
+
+h1 {
+  margin-bottom: 0;
+}
