@@ -89,7 +89,7 @@ for (const button of buttons) {
 
 const scoreCounters = document.querySelectorAll('#scores span');
 
-const observeScores = new MutationObserver((mutationsList, observer) => {
+const observeScores = new MutationObserver((mutationsList) => {
   const mutationTarget = mutationsList[0].target;
 
   if (mutationTarget.textContent === '5') {
