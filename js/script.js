@@ -14,34 +14,27 @@ const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
  * @return {string}
  */
 const getGameResults = (playerSelection, computerSelection) => {
-  if (playerSelection === computerSelection) return 'Tie';
-
-  switch (playerSelection) {
-    case 'rock':
-      switch (computerSelection) {
-        case 'paper':
-          return 'You lose: paper beats rock';
-        case 'scissors':
-          return 'You win: rock beats scissors';
-      }
-      break;
-    case 'paper':
-      switch (computerSelection) {
-        case 'rock':
-          return 'You win: paper beats rock';
-        case 'scissors':
-          return 'You lose: scissors beats paper';
-      }
-      break;
-    case 'scissors':
-      switch (computerSelection) {
-        case 'rock':
-          return 'You lose: rock beats scissors';
-        case 'paper':
-          return 'You win: scissors beats paper';
-      }
-      break;
-  }
+  return {
+    /*
+     * Outer keys represent the player's move
+     * Inner keys represent the computer's move
+     */
+    rock: {
+      rock: 'Tie',
+      paper: 'You lose: paper beats rock',
+      scissors: 'You win: rock beats scissors',
+    },
+    paper: {
+      rock: 'You win: paper beats rock',
+      paper: 'Tie',
+      scissors: 'You lose: scissors beats paper',
+    },
+    scissors: {
+      rock: 'You lose: rock beats scissors',
+      paper: 'You win: scissors beats paper',
+      scissors: 'Tie',
+    },
+  }[playerSelection][computerSelection];
 };
 
 /**
