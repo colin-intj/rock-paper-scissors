@@ -58,9 +58,9 @@ const buttons = document.querySelectorAll('button');
 let playerScore = 0;
 let computerScore = 0;
 
-document.querySelector(`p[data-player='player'] > span`).textContent =
+document.querySelector(`[data-player='player'] > span`).textContent =
     playerScore;
-document.querySelector(`p[data-player='computer'] > span`).textContent =
+document.querySelector(`[data-player='computer'] > span`).textContent =
     computerScore;
 
 for (const button of buttons) {
@@ -74,10 +74,10 @@ for (const button of buttons) {
         `${computerSelection}\n${winner}`);
 
     if (winner.startsWith('You win')) {
-      document.querySelector(`p[data-player='player'] > span`).textContent =
+      document.querySelector(`[data-player='player'] > span`).textContent =
           ++playerScore;
     } else if (winner.startsWith('You lose')) {
-      document.querySelector(`p[data-player='computer'] > span`).textContent =
+      document.querySelector(`[data-player='computer'] > span`).textContent =
           ++computerScore;
     }
   };
