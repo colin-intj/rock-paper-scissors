@@ -13,7 +13,7 @@ const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
  * @param {string} computerSelection
  * @return {string}
  */
-const playRound = (playerSelection, computerSelection) => {
+const getGameResults = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) return 'Tie';
 
   switch (playerSelection) {
@@ -68,7 +68,7 @@ for (const button of buttons) {
     const playerSelection = button.dataset.selection;
     const computerSelection = computerPlay();
 
-    const winner = playRound(playerSelection, computerSelection);
+    const winner = getGameResults(playerSelection, computerSelection);
 
     alert(`You chose: ${playerSelection}\nComputer chose: ` +
         `${computerSelection}\n${winner}`);
