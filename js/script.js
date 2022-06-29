@@ -66,7 +66,7 @@ for (const button of buttons) {
     const roundResults =
         new RockPaperScissors(button.dataset.selection, computerPlay());
 
-    alert(`${capitalizeFirstLetter(roundResults.winner)} Wins\n\n` +
+    alert(`${capitalizeFirstLetter(roundResults.winner)} Wins!\n\n` +
         `Player chose: ${roundResults.playerSelection}\n` +
         `Computer chose: ${roundResults.computerSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
@@ -89,7 +89,7 @@ const observeScores = new MutationObserver((mutationsList) => {
   if (mutationTarget.textContent === '5') {
     const winnerName =
         capitalizeFirstLetter(mutationTarget.parentNode.dataset.player);
-    alert(`${winnerName} won the game!`);
+    alert(`${winnerName} Won the Game!`);
 
     for (const scoreCounter of scoreCounters) {
       scoreCounter.textContent = '0';
