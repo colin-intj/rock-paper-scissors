@@ -17,17 +17,17 @@ class RockPaperScissors {
        * Outer keys represent the player's move
        * Inner keys represent the computer's move
        */
-      rock: {rock: 'Tie', paper: 'Computer', scissors: 'Player'},
-      paper: {rock: 'Player', paper: 'Tie', scissors: 'Computer'},
-      scissors: {rock: 'Computer', paper: 'Player', scissors: 'Tie'},
+      rock: {rock: 'tie', paper: 'computer', scissors: 'player'},
+      paper: {rock: 'player', paper: 'tie', scissors: 'computer'},
+      scissors: {rock: 'computer', paper: 'player', scissors: 'tie'},
 
     }[playerSelection][computerSelection];
 
     switch (this.winner) {
-      case 'Player':
+      case 'player':
         this.message = `${playerSelection} beats ${computerSelection}`;
         break;
-      case 'Computer':
+      case 'computer':
         this.message = `${computerSelection} beats ${playerSelection}`;
         break;
       default:
@@ -66,15 +66,15 @@ for (const button of buttons) {
     const roundResults =
         new RockPaperScissors(button.dataset.selection, computerPlay());
 
-    alert(`${roundResults.winner} Wins\n\n` +
+    alert(`${capitalizeFirstLetter(roundResults.winner)} Wins\n\n` +
         `Player chose: ${roundResults.playerSelection}\n` +
         `Computer chose: ${roundResults.computerSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
 
-    if (roundResults.winner === 'Player') {
+    if (roundResults.winner === 'player') {
       document.querySelector(`[data-player='player'] > span`).textContent =
           ++playerScore;
-    } else if (roundResults.winner === 'Computer') {
+    } else if (roundResults.winner === 'computer') {
       document.querySelector(`[data-player='computer'] > span`).textContent =
           ++computerScore;
     }
