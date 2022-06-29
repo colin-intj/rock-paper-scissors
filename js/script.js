@@ -20,25 +20,19 @@ class RockPaperScissors {
       rock: {rock: 'Tie', paper: 'Computer', scissors: 'Player'},
       paper: {rock: 'Player', paper: 'Tie', scissors: 'Computer'},
       scissors: {rock: 'Computer', paper: 'Player', scissors: 'Tie'},
+
     }[playerSelection][computerSelection];
 
     switch (this.winner) {
       case 'Player':
-        this.winningMove = playerSelection;
-        this.losingMove = computerSelection;
+        this.message = `${playerSelection} beats ${computerSelection}`;
         break;
       case 'Computer':
-        this.winningMove = computerSelection;
-        this.losingMove = playerSelection;
+        this.message = `${computerSelection} beats ${playerSelection}`;
         break;
       default:
-        this.winningMove = 'N/A';
-        this.losingMove = 'N/A';
+        this.message = 'tie';
     }
-
-    this.message =
-        this.winningMove === 'N/A' ?
-            'Tie' : `${this.winningMove} beats ${this.losingMove}`;
   }
 }
 
