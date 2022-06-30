@@ -5,30 +5,39 @@
  */
 class RockPaperScissors {
   /**
-   * @param {string} playerSelection
-   * @param {string} computerSelection
+   * @param {string} playerOneSelection
+   * @param {string} playerTwoSelection
+   * @param {string} [playerOneName='Player 1']
+   * @param {string} [playerTwoName='Player 2']
    */
-  constructor(playerSelection, computerSelection) {
-    this.playerSelection = playerSelection;
-    this.computerSelection = computerSelection;
+  constructor(
+      playerOneSelection,
+      playerTwoSelection,
+      playerOneName = 'Player 1',
+      playerTwoName = 'Player 2',
+  ) {
+    this.playerOneSelection = playerOneSelection;
+    this.playerTwoSelection = playerTwoSelection;
+    this.playerOneName = playerOneName;
+    this.playerTwoName = playerTwoName;
 
     this.winner = {
       /*
-       * Outer keys represent the player's move
-       * Inner keys represent the computer's move
+       * Outer keys represent the first player's move
+       * Inner keys represent the second player's move
        */
-      rock: {rock: 'tie', paper: 'computer', scissors: 'player'},
-      paper: {rock: 'player', paper: 'tie', scissors: 'computer'},
-      scissors: {rock: 'computer', paper: 'player', scissors: 'tie'},
+      rock: {rock: 'Tie', paper: playerTwoName, scissors: playerOneName},
+      paper: {rock: playerOneName, paper: 'Tie', scissors: playerTwoName},
+      scissors: {rock: playerTwoName, paper: playerOneName, scissors: 'Tie'},
 
-    }[playerSelection][computerSelection];
+    }[playerOneSelection][playerTwoSelection];
 
     switch (this.winner) {
-      case 'player':
-        this.message = `${playerSelection} beats ${computerSelection}`;
+      case playerOneName:
+        this.message = `${playerOneSelection} beats ${playerTwoSelection}`;
         break;
-      case 'computer':
-        this.message = `${computerSelection} beats ${playerSelection}`;
+      case playerTwoName:
+        this.message = `${playerTwoSelection} beats ${playerOneSelection}`;
         break;
       default:
         this.message = 'tie';
@@ -63,10 +72,14 @@ document.querySelector(`[data-player='computer'] > span`).textContent =
 
 for (const button of buttons) {
   button.onclick = () => {
-    const roundResults =
-        new RockPaperScissors(button.dataset.selection, computerPlay());
+    const roundResults = new RockPaperScissors(
+        button.dataset.selection,
+        computerPlay(),
+        'Player',
+        'Computer',
+    );
 
-    alert(`${capitalizeFirstLetter(roundResults.winner)} Wins!\n\n` +
+    alert(`${roundResults.winner} Wins!\n\n` +
         `Player chose: ${roundResults.playerSelection}\n` +
         `Computer chose: ${roundResults.computerSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
