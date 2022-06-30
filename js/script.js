@@ -24,10 +24,21 @@ class RockPaperScissors {
        * Outer keys represent the first player's move
        * Inner keys represent the second player's move
        */
-      rock: {rock: 'Tie', paper: playerTwo.name, scissors: playerOne.name},
-      paper: {rock: playerOne.name, paper: 'Tie', scissors: playerTwo.name},
-      scissors: {rock: playerTwo.name, paper: playerOne.name, scissors: 'Tie'},
-
+      rock: {
+        rock: 'Tie',
+        paper: playerTwo.name,
+        scissors: playerOne.name,
+      },
+      paper: {
+        rock: playerOne.name,
+        paper: 'Tie',
+        scissors: playerTwo.name,
+      },
+      scissors: {
+        rock: playerTwo.name,
+        paper: playerOne.name,
+        scissors: 'Tie',
+      },
     }[playerOne.selection][playerTwo.selection];
 
     switch (this.winner) {
