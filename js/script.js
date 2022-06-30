@@ -88,7 +88,7 @@ for (const button of buttons) {
 
     /*
      * Creates a separate variable for `roundResults.winner`. Doing so helps
-     * condense the `alert()` on line 88.
+     * condense the `alert()` below.
      */
     const winner = roundResults.winner;
 
