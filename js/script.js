@@ -97,10 +97,10 @@ for (const button of buttons) {
         `Computer chose: ${roundResults.playerTwoSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
 
-    if (roundResults.winner === 'player') {
+    if (roundResults.winner === 'Player') {
       document.querySelector(`[data-player='player'] > span`).textContent =
           ++playerScore;
-    } else if (roundResults.winner === 'computer') {
+    } else if (roundResults.winner === 'Computer') {
       document.querySelector(`[data-player='computer'] > span`).textContent =
           ++computerScore;
     }
