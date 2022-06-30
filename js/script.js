@@ -86,8 +86,8 @@ for (const button of buttons) {
     const winner = roundResults.winner;
 
     alert(winner + (winner !== 'Tie' ? ' Wins!' : '!') + '\n\n' +
-        `Player chose: ${roundResults.playerSelection}\n` +
-        `Computer chose: ${roundResults.computerSelection}\n\n` +
+        `Player chose: ${roundResults.playerOneSelection}\n` +
+        `Computer chose: ${roundResults.playerTwoSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
 
     if (roundResults.winner === 'player') {
