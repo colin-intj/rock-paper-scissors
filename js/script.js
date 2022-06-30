@@ -69,6 +69,23 @@ const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
 const capitalizeFirstLetter =
     (word) => word[0].toUpperCase() + word.slice(1).toLowerCase();
 
+/**
+ * Displays a popup message containing the game's results.
+ * @param {RockPaperScissors} roundResults
+ */
+const displayRoundResults = (roundResults) => {
+  /*
+   * Creates a separate variable for `roundResults.winner`. Doing so helps
+   * condense the `alert()` call.
+   */
+  const winner = roundResults.winner;
+
+  alert(winner + (winner !== 'Tie' ? ' Wins!' : '!') + '\n\n' +
+      `Player chose: ${roundResults.playerOne.selection}\n` +
+      `Computer chose: ${roundResults.playerTwo.selection}\n\n` +
+      `${capitalizeFirstLetter(roundResults.message)}`);
+};
+
 const buttons = document.querySelectorAll('button');
 
 let playerScore = 0;
@@ -86,16 +103,7 @@ for (const button of buttons) {
         {name: 'Computer', selection: computerPlay()},
     );
 
-    /*
-     * Creates a separate variable for `roundResults.winner`. Doing so helps
-     * condense the `alert()` below.
-     */
-    const winner = roundResults.winner;
-
-    alert(winner + (winner !== 'Tie' ? ' Wins!' : '!') + '\n\n' +
-        `Player chose: ${roundResults.playerOne.selection}\n` +
-        `Computer chose: ${roundResults.playerTwo.selection}\n\n` +
-        `${capitalizeFirstLetter(roundResults.message)}`);
+    displayRoundResults(roundResults);
 
     if (roundResults.winner === 'Player') {
       document.querySelector(`[data-player='player'] > span`).textContent =
