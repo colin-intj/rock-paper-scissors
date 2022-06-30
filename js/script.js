@@ -79,7 +79,13 @@ for (const button of buttons) {
         'Computer',
     );
 
-    alert(`${roundResults.winner} Wins!\n\n` +
+    /*
+     * Creates a separate variable for `roundResults.winner`. Doing so helps
+     * condense the `alert()` on line 88.
+     */
+    const winner = roundResults.winner;
+
+    alert(winner + (winner !== 'Tie' ? ' Wins!' : '!') + '\n\n' +
         `Player chose: ${roundResults.playerSelection}\n` +
         `Computer chose: ${roundResults.computerSelection}\n\n` +
         `${capitalizeFirstLetter(roundResults.message)}`);
