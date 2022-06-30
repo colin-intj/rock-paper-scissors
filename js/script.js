@@ -1,43 +1,41 @@
 'use strict';
 
 /**
+ * Object representing a player in a game of Rock Paper Scissors
+ * @typedef {Object} RockPaperScissorsPlayer
+ * @property {string} name - The player's name
+ * @property {string} selection - The player's selection
+ */
+
+/**
  * Generates results for a round of Rock Paper Scissors.
  */
 class RockPaperScissors {
   /**
-   * @param {string} playerOneSelection
-   * @param {string} playerTwoSelection
-   * @param {string} [playerOneName='Player 1']
-   * @param {string} [playerTwoName='Player 2']
+   * @param {RockPaperScissorsPlayer} playerOne
+   * @param {RockPaperScissorsPlayer} playerTwo
    */
-  constructor(
-      playerOneSelection,
-      playerTwoSelection,
-      playerOneName = 'Player 1',
-      playerTwoName = 'Player 2',
-  ) {
-    this.playerOneSelection = playerOneSelection;
-    this.playerTwoSelection = playerTwoSelection;
-    this.playerOneName = playerOneName;
-    this.playerTwoName = playerTwoName;
+  constructor(playerOne, playerTwo) {
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
 
     this.winner = {
       /*
        * Outer keys represent the first player's move
        * Inner keys represent the second player's move
        */
-      rock: {rock: 'Tie', paper: playerTwoName, scissors: playerOneName},
-      paper: {rock: playerOneName, paper: 'Tie', scissors: playerTwoName},
-      scissors: {rock: playerTwoName, paper: playerOneName, scissors: 'Tie'},
+      rock: {rock: 'Tie', paper: playerTwo.name, scissors: playerOne.name},
+      paper: {rock: playerOne.name, paper: 'Tie', scissors: playerTwo.name},
+      scissors: {rock: playerTwo.name, paper: playerOne.name, scissors: 'Tie'},
 
-    }[playerOneSelection][playerTwoSelection];
+    }[playerOne.selection][playerTwo.selection];
 
     switch (this.winner) {
-      case playerOneName:
-        this.message = `${playerOneSelection} beats ${playerTwoSelection}`;
+      case playerOne.name:
+        this.message = `${playerOne.selection} beats ${playerTwo.selection}`;
         break;
-      case playerTwoName:
-        this.message = `${playerTwoSelection} beats ${playerOneSelection}`;
+      case playerTwo.name:
+        this.message = `${playerTwo.selection} beats ${playerOne.selection}`;
         break;
       default:
         this.message = 'tie';
@@ -73,10 +71,8 @@ document.querySelector(`[data-player='computer'] > span`).textContent =
 for (const button of buttons) {
   button.onclick = () => {
     const roundResults = new RockPaperScissors(
-        button.dataset.selection,
-        computerPlay(),
-        'Player',
-        'Computer',
+        {name: 'Player', selection: button.dataset.selection},
+        {name: 'Computer', selection: computerPlay()},
     );
 
     /*
