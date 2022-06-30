@@ -7,9 +7,7 @@
  * @property {string} selection - The player's selection
  */
 
-/**
- * Generates results for a round of Rock Paper Scissors.
- */
+/** Generates results for a round of Rock Paper Scissors. */
 class RockPaperScissors {
   /**
    * @param {RockPaperScissorsPlayer} playerOne
@@ -61,8 +59,7 @@ class RockPaperScissors {
 const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
 
 /**
- * This function capitalizes the first letter in a word and decapitalizes the
- * rest.
+ * Capitalizes the first letter in a word and decapitalizes the rest.
  * @param {string} word
  * @return {string}
  */
