@@ -75,7 +75,7 @@ const displayRoundResults = (roundResults) => {
    * Creates a separate variable for `roundResults.winner`. Doing so helps
    * condense the `alert()` call.
    */
-  const winner = roundResults.winner;
+  const {winner} = roundResults;
 
   alert(winner + (winner !== 'Tie' ? ' Wins!' : '!') + '\n\n' +
       `Player chose: ${roundResults.playerOne.selection}\n` +
