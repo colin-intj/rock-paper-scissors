@@ -56,7 +56,7 @@ class RockPaperScissors {
  * Randomly selects the computer's move for the game Rock Paper Scissors.
  * @return {string} 'rock', 'paper', or 'scissors'
  */
-const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 2)];
+const computerPlay = () => ['rock', 'paper', 'scissors'][~~(Math.random() * 3)];
 
 /**
  * Capitalizes the first letter in a word and decapitalizes the rest.
