@@ -2,7 +2,7 @@
 
 /**
  * Object representing a player in a game of Rock Paper Scissors
- * @typedef {Object} RockPaperScissorsPlayer
+ * @typedef {Object} Player
  * @property {string} name - The player's name
  * @property {string} selection - The player's selection
  */
@@ -10,8 +10,8 @@
 /** Generates results for a round of Rock Paper Scissors. */
 class RockPaperScissors {
   /**
-   * @param {RockPaperScissorsPlayer} playerOne
-   * @param {RockPaperScissorsPlayer} playerTwo
+   * @param {Player} playerOne
+   * @param {Player} playerTwo
    */
   constructor(playerOne, playerTwo) {
     this.playerOne = playerOne;
